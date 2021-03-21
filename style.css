@@ -301,6 +301,40 @@ figure.alignright figcaption,figure.alignleft figcaption {
 }
 .single-post .entry-meta .posted-on .published{display: none}
 .single-post .entry-meta .posted-on .updated{display: inline}
+.single-post .related-post {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    max-width: 100vw;
+    width: 100vw;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.single-post .related-post .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.single-post .related-post-wrapper {
+    width: 100%;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.single-post .related-post-wrapper:after {
+    content: '';
+    display: table;
+    width: 100%;
+    clear: both;
+}
+.single-post .related-post-wrapper .post-content {
+    width: 33.3333333%;
+    float: left;
+    margin-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.single-post .related-post-wrapper .post-content .related-entry-title a {
+    color: #151515;
+}
 /*Short Code*/
 .embed-responsive {
     position: relative;

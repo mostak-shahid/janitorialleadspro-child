@@ -10,6 +10,56 @@ function add_slug_body_class( $classes ) {
 }
 add_filter( 'body_class', 'add_slug_body_class' );
 
+add_action('astra_primary_content_bottom','mos_author_details_func');
+function mos_author_details_func(){
+    ?>
+    Author Meta will come here
+    <?php
+}
+add_action('astra_primary_content_bottom','mos_related_posts_func');
+function mos_related_posts_func(){
+    if(is_single()){
+        $term_ids = [];
+        $categories = get_the_category(get_the_ID());
+        foreach($categories as $category){
+            $term_ids[] = $category->term_id;
+        }
+        //var_dump(implode(',',$term_ids));
+        $args = array(
+            'posts_per_page' => 6,
+            'cat' => implode(',',$term_ids),
+            'post__not_in' => array(get_the_ID())
+        );
+        // The Query
+        $the_query = new WP_Query( $args );
+
+        // The Loop
+        if ( $the_query->have_posts() ) : ?>
+        <div class="related-post">
+            <h2 class="section-title"><?php echo __('Related Posts') ?></h2>
+            
+            <div class="related-post-wrapper">
+                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+                    <div class="post-content">
+                        <?php if (has_post_thumbnail()) : ?>
+                            <div class="ast-blog-featured-section post-thumb">
+                                <div class="post-thumb-img-content post-thumb"><a href="<?php echo get_the_permalink() ?>"><img width="373" height="210" src="<?php echo aq_resize(get_the_post_thumbnail_url('','full'), 373, 210, true) ?>" class="attachment-373x250 size-373x250 wp-post-image" alt="office cleaning safety tips - janitorial leads pro" loading="lazy" itemprop="image"></a></div>
+                            </div>
+                        <?php endif;?>
+                        <div class="related-entry-header">
+                            <h4 class="related-entry-title" itemprop="headline"><a href="<?php echo get_the_permalink() ?>" rel="bookmark"><?php echo get_the_title() ?></a></h4>
+                        </div>
+                    </div>       
+               
+                <?php endwhile; ?>
+            </div>
+        </div>
+        <?php endif;
+        /* Restore original Post Data */
+        wp_reset_postdata();        
+    }
+}
 add_action('astra_header_before','custom_sticky_header');
 function custom_sticky_header(){
     ?>
