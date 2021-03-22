@@ -3,7 +3,7 @@ Theme Name: Astra Child
 Author: Md. Mostak Shahid
 Author URI: https://www.mdmostakshahid.com/
 Description: Astra is the fastest, fully customizable & beautiful theme suitable for blogs, personal portfolios and business websites. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with schema.org code integrated so search engines will love your site. Astra offers plenty of sidebar options and widget areas giving you a full control for customizations. Furthermore, we have included special features and templates so feel free to choose any of your favorite page builder plugin to create pages flexibly. Some of the other features: # WooCommerce Ready # Responsive # Compatible with major plugins # Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and beautiful theme!
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: janitorialleadspro-child
@@ -335,6 +335,15 @@ figure.alignright figcaption,figure.alignleft figcaption {
 .single-post .related-post-wrapper .post-content .related-entry-title a {
     color: #151515;
 }
+.single-post .post-autor-details {
+    display: flex;
+    margin-top: 30px;
+    border: 1px solid #eaeaea;
+    padding: 15px;
+}
+.single-post .post-autor-details .img-part {
+    min-width: 140px;
+}
 /*Short Code*/
 .embed-responsive {
     position: relative;
@@ -491,6 +500,16 @@ figure.alignright figcaption,figure.alignleft figcaption {
     color: #fff;
     text-decoration: underline;
 }
+@media (min-width:769px) and (max-width:992px ) {
+    .single-post .related-post-wrapper .post-content:nth-child(2n+1){
+        clear: both;
+    }    
+}
+@media (min-width:992px) {
+    .single-post .related-post-wrapper .post-content:nth-child(3n+1){
+        clear: both;
+    }    
+}
 @media (max-width:1440px) {
     h2, .entry-content h2 {font-size: 24px}
 }
@@ -515,6 +534,9 @@ figure.alignright figcaption,figure.alignleft figcaption {
     .wp-block-columns.break-992{flex-wrap: wrap!important;}
     .wp-block-columns.break-992 > .wp-block-column{flex-basis: 100%!important;margin-left: 0;}
     #banner-section,#page-title {background-size: cover;background-position: right center;}
+    .single-post .related-post-wrapper .post-content {
+        width: 50%;
+    }
 }
 @media (max-width:768px) {
     .font-768-30{font-size: 30px!important}
@@ -529,6 +551,15 @@ figure.alignright figcaption,figure.alignleft figcaption {
     .wp-block-columns > .wp-block-column{flex-basis: 100%!important;margin-left: 0;}
     #package-section .right-floated {margin: 0;padding: 15px;}
     .img-768-full img{display: block;width: 100%;height: auto;}
+    .single-post .post-autor-details {
+        display: block;
+        text-align: center;
+    }
+    .single-post .related-post-wrapper .post-content {
+        width: 100%;
+        text-align: center;
+    }
+    .single-post .related-post-wrapper .post-content .wp-post-image{width: 100%;height: auto;}
 }
 @media (max-width:480px) {
     #banner-section .wp-block-cover__inner-container {background-color: rgba(255,255,255,.7);padding: 10px;}

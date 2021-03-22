@@ -10,11 +10,21 @@ function add_slug_body_class( $classes ) {
 }
 add_filter( 'body_class', 'add_slug_body_class' );
 
-add_action('astra_primary_content_bottom','mos_author_details_func');
+add_action( 'astra_template_parts_content', 'mos_author_details_func', 14 );
+
+//add_action('astra_primary_content_bottom','mos_author_details_func');
 function mos_author_details_func(){
+    if(is_single()) :
     ?>
-    Author Meta will come here
+    <div class="post-autor-details">
+        <div class="img-part"><?php echo get_avatar(get_the_author_meta('ID'),120) ?></div>
+        <div class="text-part">
+            <h4 class="author-name" itemprop="name"><a href="<?php echo get_the_author_meta('user_url') ?>" title="View all posts by <?php echo get_the_author_meta('display_name') ?>" rel="author" class="url fn n" itemprop="url"><?php echo get_the_author_meta('display_name') ?></a></h4>
+            <div class="author-description" itemprop="name"><?php echo get_the_author_meta('description') ?></div>
+        </div>
+    </div>
     <?php
+    endif;
 }
 add_action('astra_primary_content_bottom','mos_related_posts_func');
 function mos_related_posts_func(){
