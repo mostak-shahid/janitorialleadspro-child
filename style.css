@@ -344,6 +344,10 @@ figure.alignright figcaption,figure.alignleft figcaption {
 .single-post .post-autor-details .img-part {
     min-width: 140px;
 }
+.wpcf7 form .wpcf7-response-output {
+    width: 95%;
+    margin-right: 5%;
+}
 /*Short Code*/
 .embed-responsive {
     position: relative;
