@@ -348,6 +348,7 @@ figure.alignright figcaption,figure.alignleft figcaption {
     clear: both;
     width: 95%;
     margin-right: 5%;
+    margin-left: 0;
 }
 /*Short Code*/
 .embed-responsive {
