@@ -345,6 +345,7 @@ figure.alignright figcaption,figure.alignleft figcaption {
     min-width: 140px;
 }
 .wpcf7 form .wpcf7-response-output {
+    clear: both;
     width: 95%;
     margin-right: 5%;
 }
