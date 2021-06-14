@@ -543,6 +543,14 @@ figure.alignright figcaption,figure.alignleft figcaption {
     .single-post .related-post-wrapper .post-content {
         width: 50%;
     }
+    .mos-3ccta-wrapper .mos-3ccta,.mos-3ccta-wrapper .mos-3ccta .call-left, .mos-3ccta-wrapper .mos-3ccta .call-center, .mos-3ccta-wrapper .mos-3ccta .call-right {
+        display: block;
+        text-align: center;
+        width: 100%!important;
+    }
+    .mos-3ccta-wrapper .mos-3ccta .call-left, .mos-3ccta-wrapper .mos-3ccta .call-center, .mos-3ccta-wrapper .mos-3ccta .call-right{
+        margin-bottom: 10px;
+    }
 }
 @media (max-width:768px) {
     .font-768-30{font-size: 30px!important}
