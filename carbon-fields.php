@@ -17,6 +17,11 @@ function crb_attach_theme_options() {
             Field::make( 'sidebar', 'crb_custom_sidebar' ),
             Field::make( 'image', 'crb_photo' ),
         ));*/
+    
+    Container::make( 'theme_options', __( 'Custom Code', 'crb' ) )
+        ->add_fields( array(
+            Field::make( 'textarea', 'mos_additional_coding', 'Additional Coding' ),
+        ));
     Block::make( __( 'Mos Image Block' ) )
     ->add_fields( array(
         Field::make( 'text', 'mos-image-heading', __( 'Heading' ) ),
@@ -34,7 +39,7 @@ function crb_attach_theme_options() {
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
         <div class="mos-image-block-wrapper <?php echo $attributes['className'] ?>">
-            <div class="mos-image-block text-<?php echo esc_html( $fields['mos-image-alignment'] ) ?>">
+            <div class="mos-image-block text-<?php echo esc_html( $fields['mos-image-alignment'] ) ?> text-sm-center">
                 <?php echo wp_get_attachment_image( $fields['mos-image-media'], 'full' ); ?>
                 <h4><?php echo esc_html( $fields['mos-image-heading'] ); ?></h4>
                 <hr style="background-color: <?php echo esc_html( $fields['mos-image-hr'] ) ?>;">
