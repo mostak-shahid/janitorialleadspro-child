@@ -25,7 +25,7 @@ function shortcodes_page(){
 			<li>[feature-image wrapper_element='div' wrapper_atts='' height='' width=''] <span class="sdetagils">displays feature image</span></li>		
 			<li>[font-awesome class="" container-class=""] <span class="sdetagils">displays feature image</span></li>		
 			<li>[blog-teaser class="" gap="NULL/gap-sm/gap-md/gap-lg" posts="3"] <span class="sdetagils">displays feature image</span></li>		
-			<li>[mos-embed url="" ratio="32by9/21by9/16by9/4by3/1by1"] <span class="sdetagils">displays Embeds</span></li>		
+			<li>[mos-embed url="" ratio="32by9/21by9/16by9/4by3/1by1" class=""] <span class="sdetagils">displays Embeds</span></li>		
 			<li>[social-menu class="" links=""] <span class="sdetagils">displays Social Icons</span></li>		
 		</ol>
 	</div>
@@ -211,9 +211,10 @@ function mos_embed_func($atts = array(), $content = '') {
 	$atts = shortcode_atts( array(
         'url' => '',
 		'ratio' => '21by9',
+        'class' => ''
 	), $atts, 'mos-embed' );
     ob_start(); ?>
-        <div class="embed-responsive embed-responsive-<?php echo $atts['ratio'] ?>">
+        <div class="embed-responsive embed-responsive-<?php echo $atts['ratio'] ?> <?php echo $atts['class'] ?>">
             <iframe class="embed-responsive-item" src="<?php echo $atts['url'] ?>"></iframe>
         </div>
     <?php $html = ob_get_clean();
