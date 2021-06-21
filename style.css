@@ -260,8 +260,12 @@ figure.alignright figcaption,figure.alignleft figcaption {
     background-color: #ffffff;
     margin-top: 60px;
     margin-left: -120px;
+    margin-bottom: 40px;
     padding-top: 60px;
     padding-left: 80px;
+    padding-bottom: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+    
 }
 .pricing-section .pricing-list li {padding: 11px 10px;}
 .pricing-section .pricing-list li + li {border-top: 1px solid rgba(0,0,0,0.1);}
