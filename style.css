@@ -80,6 +80,7 @@ figure.alignright figcaption,figure.alignleft figcaption {
 .mb-0, .entry-content .mb-0{margin-bottom: 0;}
 .mb-20, .entry-content .mb-20{margin-bottom: 20px;}
 .mb-40, .entry-content .mb-40{margin-bottom: 40px;}
+.mr-0{margin-right: 0!important}
 .py-20, .entry-content .py-20{padding-top: 20px;padding-bottom: 20px;}
 .px-5p, .entry-content .px-5p{padding-left: 5%;padding-right: 5%;}
 .p-5p, .entry-content .p-5p{padding: 5%}
