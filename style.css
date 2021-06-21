@@ -54,6 +54,7 @@ blockquote:before{
     top: 0;
     left: 0;
 }
+.wp-block-button .wp-block-button__link {padding: 10px!important}
 figure.alignright,figure.alignleft {
     padding: 8px;
     background-color: #f8f8f8;
