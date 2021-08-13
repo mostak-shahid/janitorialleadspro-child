@@ -53,6 +53,7 @@ function crb_attach_theme_options() {
         Field::make( 'text', 'mos-3ccta-heading', __( 'Heading' ) ),        
         Field::make( 'image', 'mos-3ccta-media', __( 'Image' ) ),
         Field::make( 'text', 'mos-3ccta-link', __( 'Link' ) ),
+        Field::make( 'text', 'mos-3ccta-link-2', __( 'Link 2' ) ),
         Field::make( 'textarea', 'mos-3ccta-content', __( 'Content' ) ),
         Field::make( 'image', 'mos-3ccta-bgimage', __( 'Background Image' ) ),
         Field::make( 'color', 'mos-3ccta-bgcolor', __( 'Background Color' ) ),
@@ -63,7 +64,7 @@ function crb_attach_theme_options() {
         <div class="mos-3ccta-wrapper <?php echo $attributes['className'] ?>" style="<?php if ($fields['mos-3ccta-bgcolor']) echo 'background-color:'.esc_html($fields['mos-3ccta-bgcolor']).';' ?><?php if ($fields['mos-3ccta-bgimage']) echo 'background-image:url('.wp_get_attachment_url($fields['mos-3ccta-bgimage']).');' ?>">
             <div class="mos-3ccta">
                 <div class="call-left">
-                    <h3><?php echo esc_html( $fields['mos-3ccta-heading'] ); ?></h3>
+                    <h3><a href="<?php echo ($fields['mos-3ccta-link-2'])?esc_url( $fields['mos-3ccta-link-2'] ):'#'; ?>"><?php echo esc_html( $fields['mos-3ccta-heading'] ); ?></a></h3>
                 </div>
                 <div class="call-center">
                     <a href="<?php echo esc_url( $fields['mos-3ccta-link'] ); ?>" class="" target="_blank"><?php echo wp_get_attachment_image( $fields['mos-3ccta-media'], 'full' ); ?></a>

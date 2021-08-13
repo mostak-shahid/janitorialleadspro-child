@@ -91,11 +91,15 @@ function mos_astra_header_before(){
     <div class="main-top-bar">
         <div class="ast-container">
             <div class="ast-flex main-top-bar-container">
-                <div class="column one">
+                <div class="part-1">
                     <ul class="contact_details">
                         <li class="slogan">Need Janitorial Leads?</li>
                         <li class="phone"><i class="fa fa-phone"></i> <a href="tel:(646)583-1385">(646) 583-1385</a></li>
+                        <li class="email"><i class="fa fa-envelope"></i> <a href="mailto:office@janitorialleadspro.com">office@janitorialleadspro.com</a></li>
                     </ul>                    
+                </div>
+                <div class="part-2">
+                    <?php echo do_shortcode('[social-menu class="social-menu header-social-menu" links="https://www.facebook.com/janitorialleadspro,https://twitter.com/janitorial_appt,https://www.linkedin.com/company/janitorialleadspro/"]') ?>                   
                 </div>
             </div>
         </div>

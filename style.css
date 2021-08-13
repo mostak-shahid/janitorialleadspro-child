@@ -200,7 +200,7 @@ figure.alignright figcaption,figure.alignleft figcaption {
 }
 .main-header-bar .main-top-bar-container {
     line-height: 1.2;
-    padding: 20px 0;
+    padding: 20px 0 0;
 }
 .contact_details {
     color: #bbb;
