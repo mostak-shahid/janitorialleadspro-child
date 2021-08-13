@@ -22,6 +22,93 @@ function crb_attach_theme_options() {
         ->add_fields( array(
             Field::make( 'textarea', 'mos_additional_coding', 'Additional Coding' ),
         ));
+    
+    Block::make( __( 'Mos Media Block' ) )
+        ->add_fields( array(
+        Field::make( 'image', 'mos-media-image', __( 'Image' ) ),
+        Field::make( 'text', 'mos-media-icon-class', __( 'Icon Class' ) ),
+        Field::make( 'textarea', 'mos-media-svg', __( 'SVG Code' ) ),
+        Field::make( 'text', 'mos-media-heading', __( 'Heading' ) ),
+        Field::make( 'rich_text', 'mos-media-content', __( 'Content' ) ),
+        Field::make( 'text', 'mos-media-btn-title', __( 'Button' ) ),
+        Field::make( 'text', 'mos-media-btn-url', __( 'URL' ) ),
+        Field::make( 'multiselect', 'mos-media-block-one', __( 'Block One' ) )
+            ->set_options( array(
+                'image' => 'Image',
+                'icon' => 'Icon',
+                'svg' => 'SVG',
+                'heading' => 'Heading',
+                'content' => 'Content',
+                'button' => 'Button',
+            ))
+            ->set_default_value( ['image','icon','svg','heading','content','button'] ),
+        Field::make( 'multiselect', 'mos-media-block-two', __( 'Block Two' ) )
+            ->set_options( array(
+                'image' => 'Image',
+                'icon' => 'Icon',
+                'svg' => 'SVG',
+                'heading' => 'Heading',
+                'content' => 'Content',
+                'button' => 'Button',
+            )),
+        Field::make( 'select', 'mos-media-alignment', __( 'Content Alignment' ) )
+            ->set_options( array(
+                'left' => 'Left',
+                'right' => 'Right',
+                'center' => 'Center',
+            )),
+    ))
+    ->set_icon( 'id-alt' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+        <div class="mos-media-block-wrapper <?php echo (@$attributes['className'])?$attributes['className']:'' ?>">
+            <div class="mos-media-block position-relative text-<?php echo esc_html( $fields['mos-media-alignment'] ) ?>">    
+                <?php if (sizeof($fields['mos-media-block-one'])) : ?>
+                <div class="part-one">  
+                    <?php foreach($fields['mos-media-block-one'] as $part_1) : ?>
+                        <?php if ($part_1 == 'image' && $fields['mos-media-image']) : ?>
+                            <div class="img-part"><?php echo wp_get_attachment_image( $fields['mos-media-image'], 'full' ); ?></div>
+                        <?php elseif ($part_1 == 'icon' && $fields['mos-media-icon-class']) : ?>
+                            <span class="icon-part"><i class="<?php echo esc_html( $fields['mos-media-icon-class'] ); ?>"></i></span>
+                        <?php elseif ($part_1 == 'svg' && $fields['mos-media-svg']) : ?>
+                            <span class="svg-part"><?php echo $fields['mos-media-svg']; ?></span>
+                        <?php elseif ($part_1 == 'heading' && $fields['mos-media-heading']) : ?>
+                            <h4 class="title-part"><?php echo esc_html( $fields['mos-media-heading'] ); ?></h4>
+                        <?php elseif ($part_1 == 'content' && $fields['mos-media-content']) :?>
+                            <div class="desc"><?php echo apply_filters( 'the_content', $fields['mos-media-content'] ); ?></div> 
+                        <?php elseif ($part_1 == 'button' && $fields['mos-media-btn-title'] && $fields['mos-media-btn-url']) :?>   
+                            <div class="wp-block-buttons"><div class="wp-block-button"><span title="" class="wp-block-button__link"><?php echo do_shortcode( $fields['mos-media-btn-title'] ); ?></span></div></div> 
+                        <?php endif;?>
+                    <?php endforeach;?>              
+                </div>
+                <?php endif?>
+                <?php if (sizeof($fields['mos-media-block-two'])) : ?>
+                <div class="part-two">
+                    <?php foreach($fields['mos-media-block-two'] as $part_2) : ?>
+                        <?php if ($part_2 == 'image' && $fields['mos-media-image']) : ?>
+                            <div class="img-part"><?php echo wp_get_attachment_image( $fields['mos-media-image'], 'full' ); ?></div>
+                        <?php elseif ($part_2 == 'icon' && $fields['mos-media-icon-class']) : ?>
+                            <span class="icon-part"><i class="<?php echo esc_html( $fields['mos-media-icon-class'] ); ?>"></i></span>
+                        <?php elseif ($part_2 == 'svg' && $fields['mos-media-svg']) : ?>
+                            <span class="svg-part"><?php echo $fields['mos-media-svg']; ?></span>
+                        <?php elseif ($part_2 == 'heading' && $fields['mos-media-heading']) : ?>
+                            <h4 class="title-part"><?php echo esc_html( $fields['mos-media-heading'] ); ?></h4>
+                        <?php elseif ($part_2 == 'content' && $fields['mos-media-content']) :?>
+                            <div class="desc"><?php echo apply_filters( 'the_content', $fields['mos-media-content'] ); ?></div> 
+                        <?php elseif ($part_2 == 'button' && $fields['mos-media-btn-title'] && $fields['mos-media-btn-url']) :?>   
+                            <div class="wp-block-buttons"><div class="wp-block-button"><span title="" class="wp-block-button__link"><?php echo do_shortcode( $fields['mos-media-btn-title'] ); ?></span></div></div> 
+                        <?php endif;?>
+                    <?php endforeach;?>               
+                </div>
+                <?php endif?>
+                <?php if ($fields['mos-media-btn-url']) :?>
+                    <a href="<?php echo esc_url( $fields['mos-media-btn-url'] ); ?>" class="hidden-link">Read more</a>
+                <?php endif?>
+            </div>
+        </div>
+        <?php
+    });    
+    
     Block::make( __( 'Mos Image Block' ) )
     ->add_fields( array(
         Field::make( 'text', 'mos-image-heading', __( 'Heading' ) ),

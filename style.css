@@ -33,6 +33,7 @@ figcaption {text-align: center;}
 .text-white{color: #ffffff!important}
 .bg-orange{background-color: #f84c25!important}
 .bg-black{background-color: #151515!important}
+.bg-white{background-color: #ffffff!important}
 .text-left{text-align: left;}
 .text-right{text-align: right;}
 .text-center{text-align: center;}
@@ -43,6 +44,55 @@ figcaption {text-align: center;}
 .rounded-3 {border-radius: 0.3rem !important;}
 .rounded-circle {border-radius: 50% !important;}
 .rounded-pill {border-radius: 50rem !important;}
+.border {
+  border: 1px solid #dee2e6 !important;
+}
+.mos-media-block {
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:-ms-flex;
+    display:-o-flex;
+    display:flex;
+    flex-direction:column;
+}  
+.media-block-row .mos-media-block{flex-direction:row}
+.media-block-row-reverse .mos-media-block{flex-direction:row-reverse}
+.media-block-column-reverse .mos-media-block{flex-direction:column-reverse}
+.media-block-equal-height, .media-block-equal-height .mos-media-block{height:100%}
+.justify-content-start,.media-block-justify-content-start .mos-media-block{justify-content:flex-start!important}
+.justify-content-end,.media-block-justify-content-end .mos-media-block{justify-content:flex-end!important}
+.justify-content-center,.media-block-justify-content-center .mos-media-block{justify-content:center!important}
+.justify-content-between,.media-block-justify-content-between .mos-media-block{justify-content:space-between!important}
+.justify-content-around,.media-block-justify-content-around .mos-media-block{justify-content:space-around!important}
+.justify-content-evenly,.media-block-justify-content-evenly .mos-media-block{justify-content:space-evenly!important}
+.align-items-start,.media-block-align-items-start .mos-media-block{align-items:flex-start!important}
+.align-items-end,.media-block-align-items-end .mos-media-block{align-items:flex-end!important}
+.align-items-center,.media-block-align-items-center .mos-media-block{align-items:center!important}
+.align-items-baseline,.media-block-align-items-baseline .mos-media-block{align-items:baseline!important}
+.align-items-stretch,.media-block-align-items-stretch .mos-media-block{align-items:stretch!important}
+.align-content-start,.media-block-align-content-start .mos-media-block{align-content:flex-start!important}
+.align-content-end,.media-block-align-content-end .mos-media-block{align-content:flex-end!important}
+.align-content-center,.media-block-align-content-center .mos-media-block{align-content:center!important}
+.align-content-between,.media-block-align-content-between .mos-media-block{align-content:space-between!important}
+.align-content-around,.media-block-align-content-around .mos-media-block{align-content:space-around!important}
+.align-content-stretch,.media-block-align-content-stretch .mos-media-block{align-content:stretch!important}
+.align-self-auto{align-self:auto!important}
+.align-self-start{align-self:flex-start!important}
+.align-self-end{align-self:flex-end!important}
+.align-self-center{align-self:center!important}
+.align-self-baseline{align-self:baseline!important}
+.align-self-stretch{align-self:stretch!important}
+.media-block-row .mos-media-block .part-two,.media-block-row-reverse .mos-media-block .part-two {
+    flex: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.media-block-row .mos-media-block .title-part,.media-block-row-reverse .mos-media-block .title-part {
+    margin-bottom: 0;
+}
+.mos-media-block .title-part, .mos-media-block .desc>p:last-child {
+    margin-bottom: 0;
+}
 blockquote {margin: 0;padding: 0;text-align: left;border-left-style: none;min-height: 65px;}
 blockquote > * {padding-left: 50px;}
 blockquote:before{
@@ -82,6 +132,8 @@ figure.alignright figcaption,figure.alignleft figcaption {
 .mb-20, .entry-content .mb-20{margin-bottom: 20px;}
 .mb-40, .entry-content .mb-40{margin-bottom: 40px;}
 .mr-0{margin-right: 0!important}
+.p-30{padding: 30px;}
+.p-15{padding: 15px;}
 .py-20, .entry-content .py-20{padding-top: 20px;padding-bottom: 20px;}
 .px-5p, .entry-content .px-5p{padding-left: 5%;padding-right: 5%;}
 .p-5p, .entry-content .p-5p{padding: 5%}
@@ -511,6 +563,16 @@ figure.alignright figcaption,figure.alignleft figcaption {
 .su-highlight a {
     color: #fff;
     text-decoration: underline;
+}
+.home-counter .mos-counter-block {
+    padding: unset;
+    border-style: none;
+}
+.home-image-box .mos-media-block .part-two {
+    padding: 15px;
+}
+.home-image-box .mos-media-block .title-part {
+    margin-bottom: 15px;
 }
 @media (min-width:769px) and (max-width:992px ) {
     .single-post .related-post-wrapper .post-content:nth-child(2n+1){

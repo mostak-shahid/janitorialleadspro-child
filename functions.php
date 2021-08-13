@@ -23,6 +23,10 @@ $themeInit = Puc_v4_Factory::buildUpdateChecker(
  * Enqueue styles
  */
 function child_enqueue_styles() {
+    
+    wp_enqueue_script('jquery.waypoints.min', get_stylesheet_directory_uri() . '/plugins/jquery.counterup/jquery.waypoints.min.js', 'jquery');
+    wp_enqueue_script('jquery.counterup', get_stylesheet_directory_uri() . '/plugins/jquery.counterup/jquery.counterup.js', 'jquery');
+    
     wp_enqueue_style( 'font-awesome.min', get_stylesheet_directory_uri() . '/fonts/font-awesome-4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'astra-child-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_ASTRA_CHILD_VERSION, 'all' );
     wp_enqueue_script('numscroller', get_stylesheet_directory_uri() . '/js/numscroller.js', 'jquery');

@@ -6,4 +6,5 @@ jQuery(document).ready(function($){
 			$('.mos-sticky-header').removeClass('tiny');
 		}
 	});
+    $('.counter').counterUp();
 });
