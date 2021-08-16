@@ -215,6 +215,59 @@ function crb_attach_theme_options() {
         </div>
         <?php
     });
+    
+    Block::make( __( 'Mos Post Block' ) )
+    ->add_fields( array(
+        Field::make( 'text', 'mos-post-nop', __( 'No. of Posts' ) ),
+        Field::make( 'text', 'mos-post-offset', __( 'Offset' ) ),
+        Field::make( 'color', 'mos-post-color', __( 'Color' ) ),
+        Field::make( 'select', 'mos-post-alignment', __( 'Content Alignment' ) )
+            ->set_options( array(
+                'left' => 'Left',
+                'right' => 'Right',
+                'center' => 'Center',
+            ))
+    ))
+    ->set_icon( 'admin-post' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => ($fields['mos-post-nop'])?esc_html( $fields['mos-post-nop'] ):2,
+        );
+        if ($fields['mos-post-offset']) {
+            $args['offset'] = esc_html( $fields['mos-post-offset'] );
+        }
+        $query = new WP_Query( $args );
+        if ( $query->have_posts() ) : ?>
+            <div class="mos-post-block-wrapper <?php echo $attributes['className'] ?>">
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                <div class="mos-post-block text-<?php echo esc_html( $fields['mos-post-alignment'] ) ?> text-sm-center">
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                        <?php the_post_thumbnail('medium'); ?>
+                    </a>
+                <?php endif; ?>
+                <div class="text-wrapper">                    
+                    <h4 class="title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title()?></a></h4>
+                    <div class="desc">
+                        <?php echo strip_tags(wp_trim_words( strip_shortcodes(get_the_content()), 10, '...' )); ?>
+                        <?php //echo get_the_excerpt(); ?>
+                    </div>
+                    <div class="meta">
+                        <?php 
+                        $author_id = get_post_field ('post_author', get_the_ID());
+                        $author_display_name = get_the_author_meta( 'display_name' , $author_id );
+                        ?>
+                        <div class="author-meta">By <a href="<?php echo get_author_posts_url($author_id)?>" title="View all posts by <?php echo $author_display_name?>" rel="author" class="url fn n" itemprop="url"><?php echo $author_display_name?></a></div>
+                        <div class="date-meta"><?php echo get_the_date(); ?></div>
+                    </div>
+                </div>
+                </div>
+            <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+        <?php wp_reset_postdata();
+    });
 }
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {

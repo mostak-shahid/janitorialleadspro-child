@@ -574,6 +574,43 @@ figure.alignright figcaption,figure.alignleft figcaption {
 .home-image-box .mos-media-block .title-part {
     margin-bottom: 15px;
 }
+.mos-post-block-wrapper {
+    display: flex;
+}
+.mos-post-block {
+    width: 33.33333333%;
+    padding: 0 10px;
+}
+.mos-post-block img.wp-post-image {
+    width: 100%;
+    height: auto;
+}
+.mos-post-block .text-wrapper {
+    margin-top: -40px;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 30%);
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.mos-post-block .text-wrapper .title {
+    margin-bottom: 10px;
+}
+.mos-post-block .text-wrapper .desc {
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.mos-post-block .text-wrapper .meta {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
 @media (min-width:769px) and (max-width:992px ) {
     .single-post .related-post-wrapper .post-content:nth-child(2n+1){
         clear: both;
@@ -682,6 +719,13 @@ figure.alignright figcaption,figure.alignleft figcaption {
 
     .embed-sm-responsive-1by1::before {
         padding-top: 100%;
+    }
+    .mos-post-block-wrapper {
+        display: block;
+    }
+    .mos-post-block {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
 @media (max-width:480px) {
